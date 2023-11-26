@@ -1,0 +1,134 @@
+.contact-main {
+    justify-content: center;
+    align-items: center;
+}
+.contact-con {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #b8b5b5cc;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.contact-con hr {
+    width: 100%;
+}
+.contact-con .contact-sec {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.contact-con .contact-sec p {
+    color: #f6810d;
+    align-items: center;
+    gap: 5px;
+}
+.contact-con .contact-sec p span {
+    color: #ddd;
+}
+.contact-con .contact-sec p span:nth-child(2) {
+    font-weight: 600;
+    font-size: 25px;
+}
+.contacts-form {
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+}
+.contacts-form .contacts {
+    width: 50%;
+    gap: 10px;
+}
+.contacts-form .contacts .contact {
+    gap: 3px;
+}
+.contacts-form .contacts .contact a {
+    color: #f6810d;
+}
+
+.cont-form {
+    height: 270px;
+    width: 350px;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #b8b5b5cc;
+    padding: 10px;
+}
+.cont-form .form-group {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.cont-form .form-group input, .cont-form .form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 0;
+    outline: none;
+}
+.cont-form .form-group textarea {
+    height: 100px;
+}
+.cont-form button {
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+    color: #ddd;
+    background-color: #008000;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 850px) {
+    .contact-con {
+        width: 600px;
+    }
+    .contact-con h1 {
+        font-size: 20px;
+    }
+    .contact-con .contact-sec p {
+        font-size: 13px;
+    }
+    .contact-con .contact-sec p span:nth-child(2) {
+        font-size: 18px;
+    }
+    .contact-con .contact-sec a {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .contact-con {
+        width: 500px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .contact-con {
+        width: 100%;
+        height: 620px;
+    }
+    .contact-con .contact-sec h4 {
+        font-size: 13px;
+    }
+    .contact-con .contact-sec p {
+        font-size: 11px;
+    }
+    .contact-con .contact-sec p span:nth-child(2) {
+        font-size: 15px;
+    }
+    .contacts-form .contacts {
+        width: 100%;
+    }
+    .contacts-form {
+        flex-direction: column;
+    }
+    .cont-form {
+        width: 100%;
+    }
+}

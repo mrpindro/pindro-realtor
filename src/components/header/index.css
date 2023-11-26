@@ -1,0 +1,141 @@
+header {
+    padding: 10px 20px;
+    width: 100%;
+    max-height: 70px;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    border-bottom: 2px dashed;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+.header-nav {
+    gap: 30px;
+    padding-top: 10px;
+    position: relative;
+}
+.header-icon-con {
+    padding: 5px;
+}
+.header-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .5s linear;
+}
+.header-icon:hover {
+    color: #1c0505;
+    background-color: #f4efef;
+}
+.header-nav-con {
+    position: absolute;
+    top: 60px;
+}
+
+.header-logo {
+    justify-content: center;
+}
+.header-logo img {
+    width: 45px;
+    height: 45px;
+    opacity: 50%;
+}
+
+.header-search-soc {
+    justify-content: flex-end;
+    gap: 10px;
+}
+.header-search-soc .search {
+    border: 2px solid #34465b;
+    padding: 2px;
+    width: 70px;
+    border-radius: 20px;
+    justify-content: flex-end;
+    box-shadow: inset 1px 1px 5px 3px #b8b5b5cc;
+}
+.header-user {
+    gap: 5px;
+    position: relative;
+    margin: 0 10px;
+}
+.user-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.header-user .header-user-tab {
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    right: -20px;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 600px) {
+    header {
+        max-height: 60px;
+        height: 60px;
+    }
+    .header-nav {
+        gap: 0;
+        padding-top: 0;
+    }
+    .header-icon {
+        font-size: 16px;
+    }
+    .header-nav-con {
+        top: 50px;
+    }
+    
+    .header-logo img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .header-search-soc {
+        justify-content: flex-end;
+        gap: 6px;
+    }
+    .header-search-soc .search {
+        width: 50px;
+    }
+    .header-search-soc .search .header-search-icon {
+        font-size: 14px;
+    }
+    .user-img img {
+        width: 30px;
+        height: 30px;
+    }
+    .header-user .header-user-tab {
+        top: 170%;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    header {
+        padding: 10px;
+        grid-template-columns: 20% 20% 60%; 
+    }
+    .header-user .header-user-tab {
+        right: 0;
+    }
+}
+
+
+@media screen and (max-width: 300px) {
+    header {
+        grid-template-columns: 15% 15% 70%;
+    }
+    .header-logo img {
+        width: 30px;
+        height: 30px;
+    }
+    .header-user .header-user-tab {
+        right: -10px;
+    }
+}

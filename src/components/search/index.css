@@ -1,0 +1,184 @@
+.search-main {
+    padding: 10px;
+    gap: 20px;
+}
+.search-options {
+    width: 100%;
+    justify-content: center;
+    background-color: #132131;
+    gap: 20px;
+}
+.search-options button {
+    width: 130px;
+    padding: 5px;
+    border: 0;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    background-color: transparent;
+    color: #ddd;
+}
+.search-options .buy-search-btn, .search-options .rent-search-btn {
+    background-color: #4a596a;
+}
+.search-search-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 20px;
+    gap: 15px;
+}
+.search-loader {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SearchInputs component  */
+.search-form, .search-inputs {
+    gap: 10px;
+    justify-content: center;
+}
+.search-inputs .states, .search-inputs .towns, .search-inputs .prices {
+    gap: 5px;
+    position: relative;
+    align-items: center;
+}
+.search-inputs .states select, .search-inputs .towns select, .search-inputs .prices select {
+    outline: none;
+    border: 0;
+    height: 35px;
+    width: 170px;
+    border-radius: 5px;
+    padding: 0 25px 0 10px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.search-inputs .states .search-icons, .search-inputs .towns .search-icons, 
+.search-inputs .prices .search-icons {
+    position: absolute;
+    z-index: 1;
+    color: #222;
+    right: 15px;
+    bottom: 10px;
+}
+.search-form button {
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #896d25;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 20px;
+    border: 0;
+}
+
+
+/* SearchResults component  */
+/* .search-results-con {
+    width: 100%;
+} */
+
+
+/* Media queries  */
+@media screen and (max-width: 1200px) {
+    .search-search-results {
+        grid-template-columns: repeat(3, 1fr);
+        /* margin-top: 20px; */
+    }
+}
+
+
+@media screen and (max-width: 1050px) {
+    .search-inputs .states p, .search-inputs .towns p, .search-inputs .prices p {
+        font-size: 13px;
+    }
+    .search-inputs .states select, .search-inputs .towns select, .search-inputs .prices select {
+        font-size: 13px;
+    }
+    .search-form button {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .search-search-results {
+        grid-template-columns: repeat(2, 1fr);
+        /* margin-top: 20px; */
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .search-options button {
+        font-size: 13px;
+    }
+    .search-inputs .states p, .search-inputs .towns p, .search-inputs .prices p {
+        font-size: 11px;
+    }
+    .search-inputs .states select, .search-inputs .towns select, .search-inputs .prices select {
+        font-size: 11px;
+        width: 150px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    /* SearchInputs component  */
+    .search-form {
+        flex-direction: column;
+    }
+    .search-inputs .states select, .search-inputs .towns select, .search-inputs .prices select {
+        height: 30px;
+        width: 120px;
+    }
+    .search-inputs .states .search-icons, .search-inputs .towns .search-icons, 
+    .search-inputs .prices .search-icons {
+        bottom: 9px;
+        font-size: 12px;
+    }
+    .search-form button {
+        width: 100px;
+        padding: 5px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .search-search-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    
+}
+
+
+@media screen and (max-width: 400px) {
+    .search-options button {
+        width: 120px;
+        font-size: 12px;
+    }
+    .search-inputs {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-inputs .states, .search-inputs .towns, .search-inputs .prices {
+        width: 100%;
+        align-items: flex-start;
+    }
+    .search-inputs .states select, .search-inputs .towns select, .search-inputs .prices select {
+        outline: none;
+        border: 0;
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        padding: 0 25px 0 10px;
+        -webkit-appearance: none;
+        appearance: none;
+        font-size: 11px;
+    }
+}

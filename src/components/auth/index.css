@@ -1,0 +1,403 @@
+.auth-main {
+    justify-content: center;
+    align-items: center;
+}
+.auth-con {
+    width: 800px;
+    height: 500px;
+    box-shadow: 0 0 10px #b8b5b5cc;
+    border-radius: 10px;
+    position: relative;
+    /* background-color: #482668; */
+    /* background-color: #896d25; */
+    background-color: #34465b;
+    overflow: hidden;
+    justify-content: flex-end;
+}
+.auth-intro {
+    width: 50%;
+    height: 100%;
+    gap: 15px;
+    padding: 15px 30px 10px 15px;
+    font-size: 40px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.auth-para {
+    width: 100%;
+    height: 50%;
+    gap: 15px;
+    padding: 15px 30px 10px 15px;
+    font-size: 40px;
+    font-weight: 600;
+}
+.auth-para span {
+    font-size: 16px;
+    font-weight: 500;
+}
+.auth-intro .auth-img {
+    width: 80%;
+    height: 35%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.auth-intro img {
+    width: 100%;
+    height: 100%;
+    transition: all .5s linear;
+}
+.auth-intro img:hover {
+    transform: scale(calc(55% * 2));
+}
+.auth-modals {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    background-color: #ddd;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    border-radius: 50% 0 0 50%;
+    color: #111;
+}
+.auth-btns {
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.auth-btns button {
+    width: 150px;
+    padding: 10px;
+    outline: 0;
+    background-color: #008000;
+    border: 0;
+    color: #ddd;
+    cursor: pointer;
+    font-weight: 600;
+}
+.auth-btns button:nth-child(3) {
+    background-color: #019696;
+}
+.auth-btns .auth-or {
+    gap: 5px;
+}
+.auth-btns .auth-or hr {
+    width: 55px;
+    background-color: #111;
+    height: 3px;
+}
+.modal-con {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+
+/* Sign Up and Sign In Components  */
+.auth-form {
+    backdrop-filter: blur(5px);
+    background-color: #3e5372cc;
+    box-shadow: 0 0 10px #3e5372cc;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+}
+.auth-form h3 {
+    font-size: 30px;
+    color: #ddd;
+}
+.auth-form .errMsg {
+    color: #ff0000;
+}
+.auth-form .close-modal {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #b8b5b5cc;
+    justify-content: center;
+    cursor: pointer;
+}
+.auth-form .close-modal:hover .form-icon {
+    font-size: 18px;
+}
+.auth-form .form-group {
+    width: 100%;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.auth-form .form-group input {
+    width: 100%;
+    height: 100%;
+    padding: 10px 45px;
+    outline: none;
+    border: 0;
+}
+.auth-form .form-group input[type='file'] {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 0;
+}
+.auth-form .form-group label {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 25%;
+}
+.auth-form .form-group .file-label {
+    left: 90%;
+    top: 32%;
+}
+.auth-form .pwd-alert {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    gap: 2px;
+    font-size: 11px;
+    color: #019696;
+}
+.auth-form .pwd-offscreen {
+    position: absolute;
+    z-index: 1;
+    right: -450px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+}
+.auth-form .form-group .lock-pswd {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 28%;
+}
+.auth-form .form-group .hide {
+    display: none;
+}
+.auth-form .form-group .valid-input {
+    color: #008000;
+}
+.auth-form .form-group .invalid-input {
+    color: #ff0000;
+}
+.auth-form .form-group .input-alert {
+    position: absolute;
+    z-index: 1;
+    right: 5px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+    color: #019696;
+}
+.auth-form .form-group .off-screen {
+    position: absolute;
+    z-index: 1;
+    right: -105px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+}
+.auth-form button {
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #019696;
+    color: #ddd;
+}
+.auth-form .form-validation {
+    color: #ff0000;
+}
+.auth-form .login-btn {
+    background-color: #008000;
+}
+.toggle-modal {
+    gap: 5px;
+    color: #ddd;
+}
+.toggle-modal span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 1050px) {
+    .auth-con {
+        width: 700px;
+    }
+    .auth-para {
+        font-size: 30px;
+    }
+    .auth-form h3 {
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .auth-con {
+        width: 600px;
+        height: 400px;
+        overflow-y: scroll;
+    }
+    .auth-para {
+        font-size: 25px;
+    }
+    .auth-para span {
+        font-size: 13px;
+    }
+    .auth-btns button {
+        width: 130px;
+        font-size: 13px;
+    }
+    .auth-btns .auth-or {
+        font-size: 13px;
+    }
+    
+    
+    /* Sign Up and Sign In Components  */
+    .auth-form {
+        margin-top: 70px;
+    }
+    .auth-form h3 {
+        font-size: 25px;
+    } 
+}
+
+
+@media screen and (max-width: 650px) {
+    .auth-con {
+        width: 500px;
+        height: 300px;
+    }
+    .auth-para {
+        font-size: 20px;
+    }
+    .auth-para span {
+        font-size: 11px;
+    }
+    .auth-btns button {
+        width: 100px;
+        font-size: 11px;
+        padding: 5px;
+    }
+    .auth-btns .auth-or {
+        font-size: 11px;
+    }
+    
+    
+    /* Sign Up and Sign In Components  */
+    .auth-form {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+        width: 300px;
+        margin-top: 0px;
+    }
+    .auth-form h3 {
+        font-size: 20px;
+    }
+    .auth-form .form-icon {
+        font-size: 13px;
+    }
+    .auth-form .form-group {
+        height: 30px;
+    }
+    .auth-form .form-group input {
+        font-size: 13px;
+    }
+    .auth-form .form-group .form-group-icon {
+        font-size: 13px;
+    }
+    .auth-form .form-group .valid-input, .auth-form .invalid-input {
+        font-size: 13px;
+    }
+    .auth-form .form-persist label {
+        font-size: 12px;
+    }
+    .auth-form button {
+        font-size: 13px;
+    }
+    .toggle-modal {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .auth-con {
+        width: 400px;
+        height: 250px;
+    }
+    .auth-intro {
+        padding: 10px;
+    }
+    .auth-para {
+        font-size: 18px;
+    }
+    .auth-intro .auth-img {
+        border-radius: 10px;
+    }
+
+    .auth-form h3 {
+        font-size: 18px;
+    }
+    .auth-form .form-icon {
+        font-size: 13px;
+    }
+    .auth-form .form-group .valid-input, .auth-form .invalid-input {
+        font-size: 13px;
+    }
+    .auth-form button {
+        font-size: 11px;
+    }
+    .toggle-modal {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 429px) {
+    .auth-con {
+        width: 95%;
+    }
+    .auth-intro {
+        padding: 5px;
+        padding-right: 15px;
+    }
+    .auth-para {
+        gap: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .auth-para span {
+        font-size: 10px;
+    }
+    
+    
+    /* Sign Up and Sign In Components  */
+    .auth-form {
+        width: 240px;
+    }
+    
+}

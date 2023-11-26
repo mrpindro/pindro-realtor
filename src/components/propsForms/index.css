@@ -1,0 +1,223 @@
+.create-rent-main, .create-buy-main {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+.create-rent-main .nav-links, .create-buy-main .nav-links {
+    text-decoration: underline;
+}
+.props-form-con {
+    margin: 50px auto;
+    width: 500px;
+    height: auto;
+    min-height: 500px;
+    box-shadow: 0 0 10px #b8b5b5cc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #34465b;
+}
+.props-form {
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+.prop-con-icon {
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    background-color: #720808;
+    border-radius: 50%;
+    padding: 10px;
+}
+.prop-con-icon .prop-icon {
+    font-size: 40px;
+}
+.props-form .form-group, .props-form .form-location, .props-form .form-textarea,
+.props-form .form-period, .props-form .form-file-grp {
+    position: relative;
+    width: 100%;
+}
+.props-form .form-group input[type='text'], 
+.props-form .form-group input[type='number'],
+.props-form .form-textarea textarea {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #222;
+    color: #ddd;
+}
+.props-form .form-file-grp {
+    align-items: center;
+    gap: 5px;
+    background-color: #333d52cc;
+    border-radius: 5px;
+    padding: 5px;
+}
+.props-form .form-file-grp .file-label {
+    gap: 5px;
+}
+.props-form .form-location {
+    gap: 10px;
+}
+.props-form .form-location .prop-location {
+    opacity: 50%;
+    border-bottom: 1px solid #ddd;
+}
+.props-form .form-location select, .props-form .form-period select {
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    padding: 5px 15px;
+}
+.props-form button {
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    background-color: #008000;
+    color: #ddd;
+    padding: 10px;
+}
+.prop-icon-span {
+    position: absolute;
+    bottom: 50%;
+}
+.prop-icon-span .prop-span-icon {
+    opacity: 50%;
+}
+
+
+/* EditBuyImg component  */
+.initial-imgs {
+    width: 100%;
+    border-bottom: 2px solid #132131;
+}
+.initial-imgs h5, .prop-imgs-upload-preview h5 {
+    height: 70px;
+    width: 120px;
+    padding: 5px;
+    justify-content: center;
+    background-color: #333d52cc;
+    border-radius: 10px;
+}
+.initial-imgs img {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+}
+.prop-imgs-upload-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+.prop-imgs-upload-preview img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+.prop-imgs-upload-preview p {
+    padding: 15px;
+    width: 220px;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 550px) {
+    .props-form-con {
+        margin: 30px auto;
+        width: 400px;
+        box-shadow: 0 0 5px #b8b5b5cc;
+    }
+    .props-form h3 {
+        font-size: 16px;
+    }
+    .prop-con-icon {
+        width: 45px;
+        height: 45px;
+    }
+    .prop-con-icon .prop-icon {
+        font-size: 35px;
+    }
+    .props-form .form-group input[type='text'], 
+    .props-form .form-group input[type='number'],
+    .props-form .form-textarea textarea {
+        font-size: 13px;
+    }
+    .props-form .form-group label, 
+    .props-form .form-group label,
+    .props-form .form-textarea label,
+    .props-form .form-period label,
+    .props-form .form-location label,
+    .props-form .form-file-grp .file-label,
+    .props-form .form-location .prop-location {
+        font-size: 13px;
+    }
+    .form-file-grp input, .form-file-grp input {
+        width: 100%;
+        font-size: 11px;
+    }
+    .props-form .form-location select, .props-form .form-period select {
+        height: 30px;
+        font-size: 12px;
+    }
+    .props-form button {
+        padding: 7px;
+        font-size: 13px;
+    }
+    
+    
+    /* EditBuyImg component  */
+    .initial-imgs {
+        flex-wrap: wrap;
+    }
+    .prop-imgs-upload-preview {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 5px;
+    }
+}
+
+
+@media screen and (max-width: 429px) {
+    .props-form-con {
+        width: 95%;
+    }
+    .props-form .form-group input[type='text'], 
+    .props-form .form-group input[type='number'],
+    .props-form .form-textarea textarea {
+        font-size: 11px;
+    }
+    .props-form .form-group label, 
+    .props-form .form-group label,
+    .props-form .form-textarea label,
+    .props-form .form-period label,
+    .props-form .form-location label,
+    .props-form .form-file-grp .file-label,
+    .props-form .form-location .prop-location {
+        font-size: 11px;
+    }
+    .props-form button {
+        font-size: 12px;
+    }
+    
+    
+    /* EditBuyImg component  */
+    .initial-imgs {
+        flex-wrap: wrap;
+    }
+    .prop-imgs-upload-preview {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5px;
+    }
+    .prop-imgs-upload-preview img {
+        width: 80px;
+        height: 80px;
+    }
+    .prop-imgs-upload-preview p {
+        padding: 15px;
+        width: auto;
+        font-size: 13px;
+    }
+}

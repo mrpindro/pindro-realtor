@@ -1,0 +1,571 @@
+.users-main, .edit-user-main, .user-page-main {
+    align-items: center;
+}
+.users-main .nav-back {
+    width: 100%;
+    padding: 10px;
+    text-decoration: underline;
+}
+.users-main h3 {
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #333d52cc;
+    margin: 5px;
+}
+.users-con {
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+}
+table {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 1450px;
+    align-items: center;
+}
+thead tr, tbody tr {
+    display: grid;
+    grid-template-columns: 300px 300px 250px 150px 150px 250px;
+}
+thead tr th, tbody tr td {
+    justify-content: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+}
+tbody tr td img {
+    width: 60px;
+    height: 60px;
+} 
+.actions-tab {
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 5px;
+}
+.actions-tab .nav-links, .actions-tab .user-del-btn {
+    padding: 5px 15px;
+    box-shadow: 0 0 5px #e6e7e9cc;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.actions-tab .nav-links:hover {
+    opacity: 80%;
+}
+.actions-tab .user-del-btn {
+    background-color: #ff0000;
+    color: #ddd;
+    border: 0;
+}
+.admin-del-user {
+    position: absolute;
+    right: 5px;
+}
+
+
+/* EditUser component ----------------------- */
+.edit-user-con {
+    width: 600px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bcbabaae;
+    background-color: #34465bd3;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+}
+.edit-user-form {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    position: relative;
+}
+.edit-user-form h3 {
+    font-size: 25px;
+    color: #ddd;
+}
+.edit-user-form .errMsg {
+    color: #ff0000;
+}
+.edit-user-form .form-group {
+    width: 100%;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.edit-user-form .form-group input {
+    width: 100%;
+    height: 100%;
+    padding: 10px 45px;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    color: #ddd;
+}
+.edit-user-form .form-group label {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 25%;
+}
+.edit-user-form .pwd-inputs-btn {
+    width: 100%;
+    padding: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.edit-user-form .edit-pwd-title {
+    border-bottom: 1px solid #111e2dd3;
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    opacity: 50%;
+}
+.edit-user-form .pwd-alert {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    gap: 2px;
+    font-size: 11px;
+    color: #019696;
+}
+.edit-user-form .pwd-offscreen {
+    position: absolute;
+    z-index: 1;
+    right: -450px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+}
+.edit-user-form .form-group .lock-pswd {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 28%;
+}
+.edit-user-form .form-group .hide {
+    display: none;
+}
+.edit-user-form .form-group .valid-input {
+    color: #008000;
+}
+.edit-user-form .form-group .invalid-input {
+    color: #ff0000;
+}
+.edit-user-form .form-group .input-alert {
+    position: absolute;
+    z-index: 1;
+    right: 5px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+    color: #019696;
+}
+.edit-user-form .form-group .off-screen {
+    position: absolute;
+    z-index: 1;
+    right: -105px;
+    top: 25%;
+    gap: 2px;
+    font-size: 11px;
+}
+.edit-user-form button {
+    width: 250px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 0;
+    background-color: #019696;
+    color: #ddd;
+}
+.edit-user-form .form-validation, .delete-acct h5 {
+    color: #ff0000;
+}
+.delete-acct {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    left: 0;
+    cursor: pointer;
+}
+.delete-acct:hover {
+    opacity: 80%;
+}
+.del-options {
+    box-shadow: 0 0 5px #bcbabaae;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(5px);
+}
+.del-options p {
+    font-size: 15px;
+}
+.del-options .del-yes-no {
+    gap: 8px;
+}
+.del-options .del-yes-no button {
+    border: 1px solid #019696;
+    padding: 2px 5px;
+    border-radius: 10px;
+    color: #ddd;
+    background: transparent;
+}
+
+.del-options .del-yes-no button:nth-child(2) {
+    /* background: #ff0000; */
+    border: 1px solid #ff0000;
+}
+
+
+/* EditUserImg component ---------------------------- */
+.curr-user-img {
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+}
+.curr-user-img img {
+    height: 100%;
+    width: 100px;
+    border-radius: 50%;
+}
+.form-user-img-grp {
+    align-items: center;
+    padding: 5px;
+    box-shadow: 0 0 5px #111e2dd3;
+    border-radius: 5px;
+    font-weight: 600;
+    gap: 5px;
+}
+
+
+/* UserProfile component ------------------------------ */
+.user-profile-con {
+    width: 180px;
+    min-height: 200px;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #bcbabaae;
+    background-color: #34465bd3;
+    backdrop-filter: blur(3px);
+    overflow: hidden;
+}
+.user-profile-con ul {
+    gap: 5px;
+    position: relative;
+}
+.user-profile-con ul li {
+    padding: 5px;
+    cursor: pointer;
+}
+.user-profile-con .edit-user-img-btn {
+    position: absolute;
+    top: 20%;
+    background-color: #111e2d91;
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bcbabaae;
+    transition: all .5s linear;
+}
+.user-profile-con .edit-user-img-btn:hover {
+    transform: translateY(5px);
+}
+.user-profile-con ul .user-prof-logout {
+    background-color: #111e2dd3;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.user-profile-con ul .user-prof-logout p {
+    gap: 5px;
+}
+.prof-tab-rent-sell {
+    background-color: #222;
+    border-radius: 5px;
+    gap: 3px;
+}
+.prof-tab-rent-sell .nav-links:hover {
+    opacity: 80%;
+}
+
+
+/* UserPage component ----------- */
+.user-page-con {
+    width: 1200px;
+    min-height: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bcbabaae;
+    margin: 20px auto;
+    padding: 10px;
+}
+.user-page-user-sec {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.user-page-user-sec .user-page-user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 5px #bcbabaae;
+}
+.user-page-user-sec .user-page-user-img img {
+    width: 100%;
+    height: 100%;
+}
+.user-page-user-sec .user-page-user-img img:hover {
+    transform: scale(calc(55% * 2));
+}
+.user-page-user-sec .user-page-username {
+    padding: 5px;
+}
+.user-page-user-sec .user-page-user-info {
+    width: 100%;
+    height: 30px;
+    gap: 10px;
+    justify-content: center;
+}
+.user-page-user-sec .user-page-user-info p:nth-child(1) {
+    border-right: 1px solid #ddd;
+    padding: 0 10px;
+}
+.user-page-props-sec {
+    width: 100%;
+}
+.user-page-props-sec .user-page-props-type {
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    gap: 10px;
+}
+.user-page-props-sec .user-page-props-type button {
+    width: 100px;
+    background-color: transparent;
+    border: 0;
+    color: #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.user-page-props-sec .user-page-props-type button:focus {
+    background-color: #896d25;
+}
+.user-page-props-sec .user-page-props {
+    width: 100%;
+}
+.user-page-props .user-page-prop-imgs {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+.user-page-props .user-page-prop-imgs .user-props-con {
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 5px #bcbabaae;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.user-page-props .user-page-prop-imgs .user-props-con img {
+    width: 100%;
+    height: 100%;
+}
+.user-page-props .user-page-prop-imgs .user-props-con:hover img {
+    transform: scale(calc(55% * 2));
+}
+.user-page-props .user-page-prop-imgs .user-props-con p {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    justify-content: flex-end;
+    background: linear-gradient(to top, #222, #222, transparent);
+    font-size: 15px;
+}
+
+
+
+/* Media queries -------- */
+@media screen and (max-width: 1500px) {
+    .users-con {
+        overflow-x: scroll;
+        align-items: flex-start;
+    }
+}
+
+
+@media screen and (max-width: 1250px) {
+    /* UserPage component ----------- */
+    .user-page-con {
+        width: 95%;
+    }
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: repeat(6, 1fr);
+    } 
+}
+
+
+@media screen and (max-width: 1050px) {
+    /* UserPage component ----------- */
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    /* UserPage component ----------- */
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+
+    /* EditUser component ----------------------- */
+    .edit-user-con {
+        width: 500px;
+        height: 550px;
+    }
+}
+
+
+@media screen and (max-width: 690px) {
+    /* UserPage component ----------- */
+    .user-page-con {
+        box-shadow: 0 0 5px #bcbabaae;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .user-page-user-sec {
+        padding: 5px;
+        font-size: 13px;
+    }
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    /* EditUser component ----------------------- */
+    .edit-user-con {
+        width: 380px;
+        height: 550px;
+    }
+    .edit-user-form h3 {
+        font-size: 20px;
+    }
+    
+    .edit-user-form button {
+        font-size: 12px;
+    }
+    
+}
+
+
+@media screen and (max-width: 500px) {
+    /* UserPage component ----------- */
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 420px) { 
+    /* EditUser component ----------------------- */
+    .edit-user-con {
+        width: 280px;
+        height: 550px;
+        padding: 0;
+    }
+    .edit-user-form {
+        padding: 5px;
+        margin-top: 30px;
+    }
+    .edit-user-form h3 {
+        font-size: 18px;
+    }
+    .edit-user-form .form-group input {
+        padding: 10px 10px 10px 45px;
+    }
+    .edit-user-form .edit-pwd-title, .edit-user-form .edit-pwd-sec {
+        font-size: 12px;
+    }
+    .edit-user-form button {
+        font-size: 10px;
+    }
+   
+}
+
+
+@media screen and (max-width: 350px) {
+    /* UserPage component ----------- */
+    .user-page-props .user-page-prop-imgs {
+        grid-template-columns: 1fr;
+    }
+    .user-page-props .user-page-prop-imgs .user-props-con p {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 300px) {
+    .users-main h3 {
+        font-size: 16px;
+    }
+    thead tr th, tbody tr td {
+        font-size: 13px;
+    }
+    .actions-tab .nav-links, .actions-tab .user-del-btn {
+        font-size: 10px;
+    }
+    
+    /* EditUser component ----------------------- */
+    .edit-user-con {
+        width: 100%;
+    }
+    .edit-user-form h3 {
+        font-size: 16px;
+    }
+    .edit-user-form .form-group input {
+        font-size: 12px;
+    }
+    .form-group-icon {
+        font-size: 12px;
+    }
+    .edit-user-form .form-group label {
+        font-size: 12px;
+    }
+    
+    
+    /* EditUserImg component ---------------------------- */
+    .curr-user-img {
+        height: 70px;
+    }
+    .curr-user-img img {
+        width: 70px;
+    }
+    
+    
+    /* UserProfile component ------------------------------ */
+    .user-profile-con ul li {
+        font-size: 14px;
+    }  
+}

@@ -1,0 +1,174 @@
+.home-main {
+    width: 100%;
+    height: 85vh;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+.home-con {
+    width: 600px;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 0 10px #b8b5b5cc;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #34465b;
+}
+
+.home-con p {
+    color: #896d25;
+    font-size: 15px;
+    font-weight: 600;
+}
+.home-con h1 {
+    font-size: 40px;
+}
+.home-con .nav-links {
+    font-size: 14px;
+    padding: 8px 25px;
+    background-color: #896d25;
+    transition: all .5s linear;
+}
+.home-con .nav-links:hover {
+    opacity: 80%;
+}
+
+.home-auth {
+    position: absolute;
+    right: 2%;
+    bottom: 0;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #bbb, #fff);
+    color: #111;
+    font-weight: 600;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 3px 3px 5px #b8b5b5cc;
+}
+.home-auth:hover {
+    opacity: 70%;
+}
+.home-auth .home-auth-icon {
+    color: #008000;
+    font-size: 20px;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 800px) {
+    .home-con {
+        width: 500px;
+        height: 300px;
+        gap: 15px;
+    }
+    
+    .home-con h1 {
+        font-size: 30px;
+    }
+    
+    .home-auth {
+        box-shadow: 3px 3px 5px #b8b5b5cc;
+        font-size: 15px;
+    }
+    .home-auth .home-auth-icon {
+        font-size: 17px;
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .home-main {
+        gap: 10px;
+    }
+    .home-con {
+        width: 400px;
+        height: 250px;
+        gap: 10px;
+    }
+    
+    .home-con p {
+        font-size: 13px;
+    }
+    .home-con h1 {
+        font-size: 25px;
+    }
+    .home-con .nav-links {
+        font-size: 12px;
+        padding: 6px 20px;
+    }
+    
+    .home-auth {
+        padding: 3px 10px;
+        gap: 5px;
+        box-shadow: 1px 2px 3px #b8b5b5cc;
+        font-size: 11px;
+    }
+    .home-auth .home-auth-icon {
+        font-size: 14px;
+    }
+}
+
+
+
+@media screen and (max-width: 420px) {
+    .home-main {
+        height: 75vh;
+    }
+    .home-con {
+        width: 320px;
+        height: 200px;
+        gap: 7px;
+        box-shadow: 0 0 5px #b8b5b5cc;
+        padding: 5px;
+    }
+    
+    .home-con p {
+        font-size: 11px;
+    }
+    .home-con h1 {
+        font-size: 20px;
+    }
+    .home-con .nav-links {
+        font-size: 9px;
+        padding: 4px 15px;
+    }
+    
+    .home-auth {
+        font-size: 10px;
+    }
+    .home-auth .home-auth-icon {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 300px) {
+    .home-con {
+        width: 240px;
+        height: 170px;
+    }
+    
+    .home-con p {
+        font-size: 10px;
+    }
+    .home-con h1 {
+        font-size: 18px;
+    }
+    .home-con .nav-links {
+        font-size: 8px;
+        padding: 4px 13px;
+    }
+    
+    .home-auth {
+        bottom: 0;
+        font-size: 9px;
+    }
+    .home-auth .home-auth-icon {
+        font-size: 11px;
+    }
+}

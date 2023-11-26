@@ -1,0 +1,95 @@
+/* .filter-props-con {
+    gap: 10px;
+} */
+/* .props-filter {
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+} */
+.props-filter .props-filter-icon {
+    font-size: 30px;
+}
+.filter-props-form {
+    width: 90%;
+    gap: 25px;
+    justify-content: center;
+}
+.filter-props-form .props-price-from-to  {
+    gap: 10px;
+    align-items: center;
+}
+.filter-props-form .props-price-from-to button  {
+    background-color: #243344;
+    box-shadow: 0 0 5px #b8b5b5cc;
+    height: 25px;
+    justify-content: center;
+    gap: 3px;
+}
+.filter-props-form .props-price-from-to .from-to {
+    gap: 15px;
+}
+.filter-props-form .props-price-from-to .from {
+    gap: 5px;
+    align-items: center;
+}
+.filter-props-form .props-price-from-to .from select {
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+    border: 0;
+}
+.filter-props-form button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #896d25;
+    color: #ddd;
+}
+
+
+/* Media queries  */
+@media screen and (max-width: 800px) {
+    .filter-props-form {
+        gap:15px;
+    }
+    .filter-props-form .props-price-from-to button  {
+        font-size: 12px;
+        width: 80px;
+    }
+    .filter-props-form .props-price-from-to .from label {
+        font-size: 12px;
+    }
+    .filter-props-form button {
+        width: 65px;
+        height: 35px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .filter-props-form .props-price-from-to .from-to {
+        gap: 10px;
+    }
+    .filter-props-form .props-price-from-to .from select {
+        width: 60px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 520px) {
+    .filter-props-form {
+        width: 100%;
+        flex-direction: column;
+    }
+    .filter-props-form .props-price-from-to  {
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
