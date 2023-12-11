@@ -4,6 +4,7 @@ import { GiBanknote } from 'react-icons/gi';
 import { FaLocationDot, FaRegHeart } from 'react-icons/fa6';
 import { FaEye } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import FormatPrice from '../../FormatPrice';
 
 const Rent = ({prop}) => {
     return (
@@ -13,34 +14,10 @@ const Rent = ({prop}) => {
             </div>
             <div className="property-others flex-col">
                 <div className="property-price-con flex">
-                    <p className='flex-cen'>
+                    <div className='flex-cen'>
                         <GiBanknote /> 
-                        {
-                            prop.fee > 999 && prop.fee < 10000 ? 
-                            `${prop.fee.toString().substring(0, 1)}K` :
-                            prop.fee
-                            && 
-                            prop.fee > 9999 && prop.fee < 100000 ? 
-                            `${prop.fee.toString().substring(0, 2)}K` : 
-                            prop.fee
-                            &&
-                            prop.fee > 99999 && prop.fee < 1000000 ? 
-                            `${prop.fee.toString().substring(0, 3)}K` : 
-                            prop.fee
-                            &&
-                            prop.fee > 999999 && prop.fee < 10000000 ?
-                            `${prop.fee.toString().substring(0, 1)}M` :
-                            prop.fee
-                            &&
-                            prop.fee > 9999999 && prop.fee < 100000000 ? 
-                            `${prop.fee.toString().substring(0, 2)}M` :
-                            prop.fee 
-                            &&
-                            prop.fee > 99999999 && prop.fee < 1000000000 ?
-                            `${prop.fee.toString().substring(0, 3)}M` :
-                            prop.fee
-                        }
-                    </p> 
+                        <FormatPrice price={prop.fee} />
+                    </div> 
                     <span>{prop.period}</span>
                 </div>
                 <div className="property-title-con">

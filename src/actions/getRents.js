@@ -1,5 +1,14 @@
+import axiosApi from "../api/axiosApi";
 
-// const getRents = await axiosApi.get('/rent/props');
-const getRents = '';
+const getRents = async () => {
+    try {
+        const { data } = await axiosApi.get('/rent/props');
+
+        return data;
+
+    } catch (error) {
+        console.log(error)
+    }
+};
 
 export default getRents;

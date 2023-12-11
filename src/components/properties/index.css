@@ -77,7 +77,7 @@
     height: 15%;
     overflow: hidden;
 }
-.property-price-con p {
+.property-price-con .p {
     background-color: #243344;
     padding: 2px 10px;
     border-radius: 10px;
@@ -115,7 +115,6 @@
 .nav-back {
     width: 100%;
     padding: 2px 20px;
-    /* text-decoration: underline; */
     border-bottom: 1px solid #34465b;
 }
 .property-prop-icon {
@@ -153,24 +152,27 @@
     height: 100%;
 }
 .right-img-icon, .left-img-icon {
+    height: 100%;
     position: absolute;
     z-index: 1;
-    top: 40%;
-    background-color: #34465b;
-    border-radius: 50%;
+    top: 0;
+    justify-content: center;
+    /* background-color: #34465b; */
+    /* border-radius: 50%; */
     padding: 5px;
 }
 .left-img-icon {
-    left: 2%;
+    left: 0;
 }
-.right-img-icon, .left-img-icon:hover {
+.right-img-icon:hover, .left-img-icon:hover {
     opacity: 80%;
+    background-color: #34465b;
 }
 .right-img-icon {
-    right: 2%;
+    right: 0;
 }
 .right-img-icon .property-prop-icon, .left-img-icon .property-prop-icon {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .property-prop-con .prop-images .prop-other-imgs {
@@ -213,6 +215,9 @@
 }
 .prop-title-price .prop-title {
     font-size: 25px;
+}
+.prop-title-price .prop-price span {
+    opacity: 50%;
 }
 .prop-desc-bath-rooms .prop-desc, .prop-desc-bath-rooms .prop-bath-rooms {
     width: 50%;

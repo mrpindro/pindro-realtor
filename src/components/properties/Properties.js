@@ -3,23 +3,60 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import './index.css';
 import Property from './Property';
 import { Link } from 'react-router-dom';
-import axiosApi from '../../api/axiosApi';
+// import axiosApi from '../../api/axiosApi';
+import useRents from '../../hooks/useRents';
+import useBuys from '../../hooks/useBuys';
 
 const Properties = () => {
-    const [props, setProps] = React.useState(null);
+    const [rents] = useRents();
+    const [buys] = useBuys();
+    const props = [];
 
-    React.useEffect(() => {
-        const getAllProps = async () => {
-            try {             
-                const res = await axiosApi.get('/props');
-                setProps(res.data);
-            } catch (error) {
-                console.log(error);
-            }
+    rents?.map(prop => {
+        return props.push(prop);
+    });
+
+    buys?.map(prop => {
+        return props.push(prop);
+    });
+
+    props.sort((a, b) => {
+        const titleA = a.title.toUpperCase();
+        const titleB = b.title.toUpperCase();
+
+        if (titleA < titleB) {
+            return -1;
         }
 
-        getAllProps();
-    }, []);
+        if (titleA > titleB) {
+            return 1;
+        }
+
+        return 0;
+    });
+
+    // React.useEffect(() => {
+    //     console.log(props);
+
+    //     // eslint-disable-next-line 
+    // }, [props]);
+
+    // React.useEffect(() => {
+    //     console.log(buys);
+    // }, [buys]);
+
+    // React.useEffect(() => {
+    //     const getAllProps = async () => {
+    //         try {             
+    //             const res = await axiosApi.get('/props');
+    //             setProps(res.data);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
+
+    //     getAllProps();
+    // }, []);
 
     return (
         <main className='props-main main-con'>
@@ -34,16 +71,9 @@ const Properties = () => {
                 {props?.length ? props?.map(prop => (
                     <Property prop={prop} key={prop._id} />
                 )) : (
-                    <ClipLoader />
-                )}
-            </div>
-            {/* <div className="props-con">
-                {props?.length ? props.map(prop => (
-                    <Property prop={prop} key={prop.id} />
-                )) : (
                     <ClipLoader color='#fff' />
                 )}
-            </div> */}
+            </div>
         </main>
     );
 }

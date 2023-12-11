@@ -67,7 +67,7 @@ const UserProfile = ({ logout }) => {
                 {isAdmin && (
                     <li className='flex'>
                         <MdGroups />
-                        <Link to='/users' className='nav-links'>Users</Link>
+                        <Link to='/admin' className='nav-links'>Dashboard</Link>
                     </li>
                 )}
                 {name && (

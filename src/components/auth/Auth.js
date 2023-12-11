@@ -5,38 +5,40 @@ import homeImg from '../../img/home-img.jpeg';
 import './index.css';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import useDataContext from '../../hooks/useDataContext';
 
 const Auth = () => {
     const { email } = useAuth();
-    const [isRegister, setIsRegister] = React.useState(false);
-    const [isLogin, setIsLogin] = React.useState(false);
+    const {
+        isLogin, isRegister, toggleLogin, toggleRegister, setIsRegister, 
+        setIsLogin
+    } = useDataContext();
+    
     const navigate = useNavigate();
-
-    const toggleLogin = () => {
-        if (isLogin) {
-            return setIsLogin(false);
-        }
-        setIsRegister(false);
-        setIsLogin(true);
-    }
-
 
     const closeModal = () => {
         setIsRegister(false);
         setIsLogin(false);
     }
 
-
-    const toggleRegister = () => {
-        if (isRegister) {
-            return setIsRegister(false);
-        }
-        setIsLogin(false);
-        setIsRegister(true);
-    }
-
     return (
         <main className='auth-main main-con flex-col'>
+            {(isLogin || isRegister) && (
+                <div className="modal-con flex-col">
+                    {isLogin && (
+                        <SignIn 
+                            toggleRgister={toggleRegister}
+                            closeModal={closeModal} 
+                        />
+                    )}
+                    {isRegister && (
+                        <SignUp 
+                            toggleLogin={toggleLogin} 
+                            closeModal={closeModal}
+                        />
+                    )}
+                </div>
+            )}
             <div className="auth-con flex">
                 <div className="auth-intro flex-col">
                     <p className="auth-para flex-col">
@@ -68,7 +70,7 @@ const Auth = () => {
                             <button onClick={() => navigate('/createBuy')}>SELL</button>
                         </div>
                     )}
-                    {(isLogin || isRegister) && (
+                    {/* {(isLogin || isRegister) && (
                         <div className="modal-con flex-col">
                             {isLogin && (
                                 <SignIn 
@@ -83,7 +85,7 @@ const Auth = () => {
                                 />
                             )}
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         </main>

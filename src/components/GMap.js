@@ -32,14 +32,6 @@ const GMap = ({longitude, latitude}) => {
         // eslint-disable-next-line
     }, [map]);
 
-    // const initGoogleMap = () => {
-    //     return new window.google.maps.Map(googleMapRef.current, { 
-    //         // center: { lat: 6.6342, lng: 5.9304 },
-    //         center: { lat: latitude, lng: longitude },
-    //         zoom: 8
-    //     });
-    // }
-
     return (
         <div className="prop-map" ref={googleMapRef} 
             style={{height: '100%', width: '100%'}}

@@ -167,6 +167,9 @@
         padding: 7px;
         font-size: 13px;
     }
+    .props-form .errMsg {
+        font-size: 13px;
+    }
     
     
     /* EditBuyImg component  */

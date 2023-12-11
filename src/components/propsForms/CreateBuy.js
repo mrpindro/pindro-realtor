@@ -9,13 +9,16 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import useAuth from '../../hooks/useAuth';
 import { PiCurrencyNgnDuotone } from 'react-icons/pi';
 import { FaBed, FaShower } from 'react-icons/fa';
+import useDataContext from '../../hooks/useDataContext';
 
 const CreateBuy = () => {
     const { userId, name, email } = useAuth();
+    const {setErrMsgs, setSuccessMsgs, setIsErr} = useDataContext();
     const navigate = useNavigate();
 
     const states = statesData;
     const imagesRef = React.useRef();
+
     const [title, setTitle] = React.useState('');
     const [images, setImages] = React.useState(null);
     const [price, setPrice] = React.useState(0);
@@ -41,7 +44,18 @@ const CreateBuy = () => {
         }
     
         // eslint-disable-next-line 
-    }, [state, images]);
+    }, [state]);
+
+    React.useEffect(() => {
+        if (images?.length > 10) {
+            return setErrMsg('Too many images selected: max 10');
+        }
+        if (town && !images?.length) {
+            return setErrMsg('Images are required!')
+        }
+    
+        // eslint-disable-next-line 
+    }, [images, town]);
 
     const clear = () => {
         imagesRef.current.files = null;
@@ -95,15 +109,27 @@ const CreateBuy = () => {
                 });
 
                 if (response.data) {
-                    await axiosApi.post(sendPropMail, {name: name, title, email: email});
+                    await axiosApi.post(sendPropMail, {
+                        name: name, email: email, text: title,
+                        subject: 'Your property has been listed for sale'
+                    });
+                    setSuccessMsgs('Property successfully listed for sale');
+                    setIsErr(false);
                     setSuccessMsg('Upload successful.');
-                    alert('Property Posted');
                     clear();
                     navigate('/buyprops');
                 }
             } 
         } catch (error) {
             console.error(error);
+            if (error.status === 406) {
+                setErrMsg('Missing Fields');
+            } else {
+                setErrMsg(error.message);
+            }
+            setSuccessMsg('');
+            setErrMsgs('Upload failed');
+            setIsErr(true);
             setErrMsg(error.message);
         } finally {
             setIsLoading(false);

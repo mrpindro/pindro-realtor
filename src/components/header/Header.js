@@ -41,6 +41,7 @@ const Header = () => {
         if (isSuccess) {
             navigate('/');
         }
+
     }, [isSuccess, navigate]);
 
     return (

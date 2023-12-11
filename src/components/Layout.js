@@ -4,11 +4,14 @@ import { FcAssistant } from 'react-icons/fc';
 import Header from './header/Header';
 import Messenger from './messenger/Messenger';
 import useAuth from '../hooks/useAuth';
+import useDataContext from '../hooks/useDataContext';
+import Toast from './Toast';
 
 const Layout = () => {
     const date = new Date();
+    const { setFetchMsgs } = useDataContext();
     const navigate = useNavigate();
-    const { email } = useAuth();
+    const { name } = useAuth();
     const [isOpen, setIsOpen] = React.useState(false);
 
     const onOpen = () => {
@@ -17,10 +20,15 @@ const Layout = () => {
         }
         setIsOpen(true);
     }
-
+    
     const openAsstChat = () => {
-        if (email) {
+        if (name) {
             onOpen();
+            setFetchMsgs(true);
+            
+            setTimeout(() => {
+                setFetchMsgs(true);
+            }, []);
         } else {
             navigate('/auth');
         }
@@ -28,6 +36,7 @@ const Layout = () => {
 
     return (
         <div className='layout'>
+            <Toast />
             <Header />
             <div className="pages">
                 <Outlet />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { pricesData, statesData } from '../../utils/data';
 import { FaAngleDown } from "react-icons/fa";
+import FormatPrice from '../FormatPrice';
 
 const SearchInputs = ({state, setState, town, setTown, price, setPrice }) => {
     const propsStates = statesData;
@@ -85,11 +86,7 @@ const SearchInputs = ({state, setState, town, setTown, price, setPrice }) => {
                     >
                         {propsPrices.map(price => (
                             <option value={price} key={price}>
-                                {price < 99999 ? `${price.toString().substring(0, 2)}K` :
-                                    `${price.toString().substring(0, 3)}K` && 
-                                    price > 999999 ? `${price.toString().substring(0, 1)}M` : 
-                                    `${price.toString().substring(0, 3)}k`
-                                }
+                                ₦<FormatPrice price={price} />
                             </option>
                         ))}
                     </select>

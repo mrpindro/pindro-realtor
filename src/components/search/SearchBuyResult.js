@@ -4,6 +4,7 @@ import { FaEye, FaRegHeart } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { GiBanknote } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import FormatPrice from '../FormatPrice';
 
 const SearchBuyResults = ({props}) => {
     return (
@@ -21,9 +22,7 @@ const SearchBuyResults = ({props}) => {
                         <div className="property-price-con flex">
                             <p className='flex-cen'>
                                 <GiBanknote /> 
-                                {prop.price > 99999999 ? `${prop.rice.toString().substring(0, 3)}M` :
-                                    `${prop.price.toString().substring(0, 2)}M`
-                                }
+                                <FormatPrice price={prop.price} />
                             </p> 
                             <span>{prop.option}</span>
                         </div>

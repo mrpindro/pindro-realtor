@@ -44,6 +44,30 @@ export const usersApiSlice = reduxApiSlice.injectEndpoints({
                 { type: 'User', id: arg.id }
             ]
         }),
+        updateUserPassword: builder.mutation({
+            query: initialUserPassword => ({
+                url: 'users/reset-password',
+                method: 'PATCH',
+                body: {
+                    ...initialUserPassword
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'User', id: arg.id }
+            ]
+        }),
+        sendMessages: builder.mutation({
+            query: initialData => ({
+                url: 'users/messages',
+                method: 'POST',
+                body: {
+                    ...initialData
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'User', id: arg.id }
+            ]
+        }),
         deleteUser: builder.mutation({
             query: id => ({
                 url: `/users/${id}`,
@@ -57,7 +81,8 @@ export const usersApiSlice = reduxApiSlice.injectEndpoints({
 })
 
 export const { 
-    useGetUsersQuery, useUpdateUserMutation, useDeleteUserMutation
+    useGetUsersQuery, useUpdateUserMutation, useDeleteUserMutation,
+    useUpdateUserPasswordMutation, useSendMessagesMutation
 } = usersApiSlice;
 
 // returns the  query result object 

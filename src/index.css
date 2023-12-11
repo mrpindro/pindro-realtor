@@ -6,7 +6,7 @@
 
 body, .App {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
-    min-height: 100vh;
+    min-height: 100dvh;
     color: #ddd;
     overflow-x: hidden;
 }
@@ -53,7 +53,7 @@ button:hover {
 /* Layout Component ------------------ */
 .layout, .require-auth {
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
     background: url('./img/layout-bg.jpeg');
     background-color: #4c4d5a;
     background-blend-mode: multiply;
@@ -107,6 +107,47 @@ button:hover {
 }
 .socials-icon:hover {
     transform: scale(90%);
+}
+
+
+/* Toast component  */
+.toast-con {
+    border: 1px solid rgb(21, 138, 21);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 10px;
+    background-color: rgb(21, 138, 21);
+    border-radius: 5px;
+    max-width: 150px;
+    max-height: 60px;
+    overflow: hidden;
+    gap: 5px;
+}
+.toast-err {
+    border: 1px solid red;
+    position: fixed;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: red;
+    border-radius: 5px;
+    max-width: 150px;
+    max-height: 60px;
+    overflow: hidden;
+    gap: 5px;
+}
+.toast-off {
+    display: none;
+}
+.toast-con svg, .toast-err svg {
+    font-size: 25px;
+}
+.toast-con .toast, .toast-err .toast {
+    max-width: 110px;
+    font-size: 14px;
 }
 
 

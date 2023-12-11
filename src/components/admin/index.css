@@ -1,0 +1,214 @@
+.admin-dashbrd-con {
+    padding: 10px;
+    gap: 10px;
+    max-height: 700px;
+    overflow: hidden;
+}
+.admin-dashbrd-con .admin-nav {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 15px;
+    box-shadow: 0 0 5px #bcbabaae;
+    border-radius: 10px;
+}
+.admin-dashbrd-con ul li:nth-child(2) .nav-links {
+    background-color: #81710e;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.admin-dashbrd-con ul li .nav-links:hover {
+    background-color: #81710e;
+    border-radius: 5px;
+    opacity: 80%;
+    transition: all .5s ease-in-out;
+}
+.admin-dashbrd-con .admin-dashbrd-sec .admin-msgs {
+    min-height: 500px;
+    justify-content: center;
+}
+.admin-msgs .msgs-users {
+    align-items: center;
+    min-height: 100%;
+    max-height: 500px;
+    height: 500px;
+    width: 300px;
+    box-shadow: 0 0 5px #bcbabaae;
+    border-radius: 20px;
+    padding: 5px;
+    gap: 10px;
+    overflow-y: scroll;
+}
+.admin-msgs .msgs-users users-li-con {
+    width: 100%;
+}
+.admin-msgs .users-msgs {
+    box-shadow: 0 0 5px #bcbabaae;
+    width: 500px;
+    border-radius: 20px;
+    align-items: center;
+    padding: 5px;
+}
+
+
+/* User component --------------- */
+.users-li {
+    cursor: pointer;
+    margin: 10px 0;
+    height: 40px;
+    overflow: hidden;
+}
+.users-li:hover {
+    opacity: 80%;
+}
+.users-li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.users-li .user-msgs {
+    gap: 5px;
+}
+.users-li .user-msgs p {
+    font-size: 14px;
+}
+
+
+/* Messages component ------------------------- */
+.users-msgs {
+    max-height: 500px;
+    height: 500px;
+    position: relative;
+}
+.users-msgs .close-admin-messenger {
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    cursor: pointer;
+}
+.users-msgs .user-name-img {
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+}
+.users-msgs .user-name-img img {
+    height: 100%;
+    width: 30px;
+    border-radius: 50%;
+}
+.user-msgs-list-form {
+    justify-content: flex-end;
+    max-height: 90%;
+    height: 85%;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    gap: 5px;
+}
+.user-msgs-list-form .users-msgs-list {
+    width: 100%;
+    height: 95%;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs {
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid #ddd; */
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .user-msg {
+    width: 80%;
+    gap: 5px;
+    padding: 10px;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .admin-msg {
+    align-items: flex-end;
+    width: 100%;
+    gap: 5px;
+    padding: 10px;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .admin-msg p {
+    background-color: #81710e;
+    max-width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .admin-msg em {
+    font-size: 13px;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .user-msg p {
+    background-color: #486371;
+    padding: 5px;
+    border-radius: 5px;
+}
+.user-msgs-list-form .users-msgs-list .user-msgs .user-msg em {
+    font-size: 13px;
+}
+.user-msgs-list-form .msgs-response-form {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+}
+.user-msgs-list-form .msgs-response-form textarea {
+    width: 80%;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    border: 0;
+    padding: 5px 15px;
+}
+.user-msgs-list-form .msgs-response-form button {
+    width: 20%;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+    border: 0;
+    background-color: #81710e;
+    color: #ddd;
+}
+
+
+/* Media Query --------------------- */
+@media screen and (max-width: 600px) {
+    .admin-dashbrd-con .nav-back {
+        font-size: 13px;
+    }
+    .admin-dashbrd-con ul li .nav-links {
+        font-size: 14px;  
+    }
+    
+    
+    /* User component --------------- */
+    .users-li img {
+        width: 35px;
+        height: 35px;
+    }
+    .users-li .user-msgs p {
+        font-size: 12px;
+    }
+    
+    
+    /* Messages component ------------------------- */
+    .users-msgs .close-admin-messenger {
+        font-size: 13px;
+    }
+    .users-msgs .user-name-img p {
+        font-size: 12px;
+    }
+    .user-msgs-list-form .users-msgs-list .user-msgs .admin-msg p {
+        font-size: 12px;
+    }
+    .user-msgs-list-form .users-msgs-list .user-msgs .admin-msg em {
+        font-size: 10px;
+    }
+    .user-msgs-list-form .users-msgs-list .user-msgs .user-msg p {
+        font-size: 12px;
+    }
+    .user-msgs-list-form .users-msgs-list .user-msgs .user-msg em {
+        font-size: 10px;
+    }
+}

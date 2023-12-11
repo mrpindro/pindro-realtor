@@ -4,13 +4,15 @@ import { BsFillEnvelopeAtFill, BsFillLockFill } from 'react-icons/bs';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FaXmark } from 'react-icons/fa6';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setCredentials } from '../../features/authSlice';
 import { useLoginMutation } from '../../features/authApiSlice';
 import { useDispatch } from 'react-redux';
 import usePersist from '../../hooks/usePersist';
+import useDataContext from '../../hooks/useDataContext';
 
 const SignIn = ({toggleRgister, closeModal}) => {
+    const {setSuccessMsgs, setErrMsgs, setIsErr} = useDataContext();
     const [login, { isLoading }] = useLoginMutation()
     const [persist, setPersist] = usePersist();
     const emailRef = React.useRef();
@@ -56,9 +58,13 @@ const SignIn = ({toggleRgister, closeModal}) => {
 
             setEmail('');
             setPassword('');
+            setSuccessMsgs('Logged in');
+            setIsErr(false);
             navigate(from, { replace: true });
         } catch (error) {
             console.error(error);
+            setIsErr(true);
+            setErrMsgs('Login failed');
             if (!error?.data) {
                 setErrMsg('No Server Response');
             } else if (error?.status === 406) {
@@ -123,14 +129,22 @@ const SignIn = ({toggleRgister, closeModal}) => {
                     )}
                 </div>
             </div>
-            <div className="form-persist flex" style={{width: '100%'}}>
-                <input 
-                    type="checkbox" 
-                    id='persist'
-                    value={persist}
-                    onChange={togglePersist}
-                />
-                <label htmlFor="persist">Remember Me</label>
+            <div className="form-persist-forgot-pwd flex-cen" style={{width: '100%'}}>
+                <div className="form-persist flex" style={{width: '50%'}}>
+                    <input 
+                        type="checkbox" 
+                        id='persist'
+                        value={persist}
+                        onChange={togglePersist}
+                    />
+                    <label htmlFor="persist">Remember Me</label>
+                </div>
+
+                <div className="form-forget">
+                    <Link to='/forgot-password' className='forgot-pwd'>
+                        Forgot password?
+                    </Link>
+                </div>
             </div>
             <button type='submit' className='login-btn'>
                 {isLoading ? <ClipLoader /> : 'SIGN IN'}

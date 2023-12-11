@@ -10,12 +10,17 @@ import { Loader } from '@googlemaps/js-api-loader';
 import GMap from '../../GMap';
 import { useDeleteBuyMutation } from '../../../features/buysApiSlice';
 import useAuth from '../../../hooks/useAuth';
-import { statesCoordsData } from '../../../utils/data';
+import FormatPrice from '../../FormatPrice';
+import useDataContext from '../../../hooks/useDataContext';
+import getLatLng from '../../../actions/getLatLng';
+import { IoLink } from 'react-icons/io5';
+import moment from 'moment';
 
 const BuyProp = () => {
     const { name, isAdmin } = useAuth();
     const [ deleteRent, { isSuccess } ] = useDeleteBuyMutation();
-    const coordinates = statesCoordsData;
+
+    const { latitude, setLatitude, longitude, setLongitude } = useDataContext();
 
     const navigate = useNavigate();
 
@@ -25,8 +30,6 @@ const BuyProp = () => {
     const [val, setVal] = React.useState(0);
     const [isDel, setIsDel] = React.useState(false);
     const [loadMap, setLoadMap] = React.useState(false);
-    const [longitude, setLongitude] = React.useState(coordinates.edo.longitude);
-    const [latitude, setLatitude] = React.useState(coordinates.edo.latitude);
 
     React.useEffect(() => {
         const getProp = async () => {
@@ -57,51 +60,8 @@ const BuyProp = () => {
     },[]);
 
     React.useEffect(() => {
-        switch (prop?.location?.state) {
-            case 'Lagos State': 
-                setLatitude(coordinates.lagos.latitude);
-                setLongitude(coordinates.lagos.longitude);
-                break;
-            case 'Cross River State':
-                setLatitude(coordinates.crossRiver.latitude);
-                setLongitude(coordinates.crossRiver.longitude);
-                break;
-            case 'Delta State':
-                setLatitude(coordinates.delta.latitude);
-                setLongitude(coordinates.delta.longitude);
-                break;
-            case 'Akwa Ibom State':
-                setLatitude(coordinates.akwaIbom.latitude);
-                setLongitude(coordinates.akwaIbom.longitude);
-                break;
-            case 'Abuja, FCT':
-                setLatitude(coordinates.abuja.latitude);
-                setLongitude(coordinates.abuja.longitude);
-                break;
-            case 'Plateau State':
-                setLatitude(coordinates.plateau.latitude);
-                setLongitude(coordinates.plateau.longitude);
-                break;
-            case 'Rivers State':
-                setLatitude(coordinates.rivers.latitude);
-                setLongitude(coordinates.rivers.longitude);
-                break;
-            case 'Ogun State':
-                setLatitude(coordinates.ogun.latitude);
-                setLongitude(coordinates.ogun.longitude);
-                break;
-            case 'Osun State':
-                setLatitude(coordinates.osun.latitude);
-                setLongitude(coordinates.osun.longitude);
-                break;
-            case 'Oyo State':
-                setLatitude(coordinates.oyo.latitude);
-                setLongitude(coordinates.oyo.longitude);
-                break;
-            default:
-                setLatitude(coordinates.edo.latitude);
-                setLongitude(coordinates.edo.longitude);
-        }        
+        getLatLng(setLatitude, setLongitude, prop?.location?.state);
+        
         // eslint-disable-next-line 
     }, [prop, latitude, longitude]);
     
@@ -160,10 +120,10 @@ const BuyProp = () => {
                 <div className="prop-images flex-col">
                     <div className="prop-big-img">
                         <img src={bigImg} alt="propImg" />
-                        <div className="left-img-icon" onClick={viewPrevImg}>
+                        <div className="left-img-icon flex-cen" onClick={viewPrevImg}>
                             <FaAngleLeft className='property-prop-icon flex-cen' />
                         </div>
-                        <div className="right-img-icon" onClick={viewNextImg}>
+                        <div className="right-img-icon flex-cen" onClick={viewNextImg}>
                             <FaAngleRight className='property-prop-icon flex-cen' />
                         </div>
                     </div>
@@ -192,40 +152,27 @@ const BuyProp = () => {
                         </div>
                         <div className="prop-price flex">
                             <GiBanknote className='property-prop-icon' />
-                            {
-                                prop.price > 999 && prop.price < 10000 ? 
-                                `${prop.price.toString().substring(0, 1)}K` :
-                                prop.price
-                                && 
-                                prop.price > 9999 && prop.price < 100000 ? 
-                                `${prop.price.toString().substring(0, 2)}K` : 
-                                prop.price
-                                &&
-                                prop.price > 99999 && prop.price < 1000000 ? 
-                                `${prop.price.toString().substring(0, 3)}K` : 
-                                prop.price
-                                &&
-                                prop.price > 999999 && prop.price < 10000000 ?
-                                `${prop.price.toString().substring(0, 1)}M` :
-                                prop.price
-                                &&
-                                prop.price > 9999999 && prop.price < 100000000 ? 
-                                `${prop.price.toString().substring(0, 2)}M` :
-                                prop.price 
-                                &&
-                                prop.price > 99999999 && prop.price < 1000000000 ?
-                                `${prop.price.toString().substring(0, 3)}M` :
-                                prop.price
-                            } 
+                            <FormatPrice price={prop?.price} />
                             <span>{prop.option}</span>
                         </div>
                     </div>
                     <div className="prop-desc-bath-rooms flex">
                         <div className="prop-desc flex-col">
+                            <div className="created-at flex">
+                                Listed:
+                                <p>
+                                    {moment(prop.createdAt).calendar()}
+                                </p>
+                            </div>
                             Description:
                             <span>{prop.description}</span>
                         </div>
                         <div className="prop-bath-rooms flex-col">
+                            <div className="prop-rooms flex">
+                                <IoLink className='property-prop-icon' />
+                                Ref: 
+                                <span>{prop._id.substring(0, 8)}</span>
+                            </div>
                             <div className="prop-rooms flex">
                                 <FaBed className='property-prop-icon' />
                                 Bedrooms: 

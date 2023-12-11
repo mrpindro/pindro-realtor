@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FaAngleLeft, FaAngleRight, FaBed, FaShower } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
+import { IoLink } from "react-icons/io5";
 import { GiBanknote } from 'react-icons/gi';
 import { BsFillImageFill, BsFillTelephoneFill } from 'react-icons/bs';
 import axiosApi, { getRentsProps } from '../../../api/axiosApi';
@@ -11,6 +12,9 @@ import GMap from '../../GMap';
 import { useDeleteRentMutation } from '../../../features/rentsApiSlice';
 import useAuth from '../../../hooks/useAuth';
 import { statesCoordsData } from '../../../utils/data';
+import FormatPrice from '../../FormatPrice';
+import getLatLng from '../../../actions/getLatLng';
+import moment from 'moment';
 
 const RentProp = () => {
     const { name, isAdmin } = useAuth();
@@ -57,51 +61,7 @@ const RentProp = () => {
     },[]);
 
     React.useEffect(() => {
-        switch (prop?.location?.state) {
-            case 'Lagos State': 
-                setLatitude(coordinates.lagos.latitude);
-                setLongitude(coordinates.lagos.longitude);
-                break;
-            case 'Cross River State':
-                setLatitude(coordinates.crossRiver.latitude);
-                setLongitude(coordinates.crossRiver.longitude);
-                break;
-            case 'Delta State':
-                setLatitude(coordinates.delta.latitude);
-                setLongitude(coordinates.delta.longitude);
-                break;
-            case 'Akwa Ibom State':
-                setLatitude(coordinates.akwaIbom.latitude);
-                setLongitude(coordinates.akwaIbom.longitude);
-                break;
-            case 'Abuja, FCT':
-                setLatitude(coordinates.abuja.latitude);
-                setLongitude(coordinates.abuja.longitude);
-                break;
-            case 'Plateau State':
-                setLatitude(coordinates.plateau.latitude);
-                setLongitude(coordinates.plateau.longitude);
-                break;
-            case 'Rivers State':
-                setLatitude(coordinates.rivers.latitude);
-                setLongitude(coordinates.rivers.longitude);
-                break;
-            case 'Ogun State':
-                setLatitude(coordinates.ogun.latitude);
-                setLongitude(coordinates.ogun.longitude);
-                break;
-            case 'Osun State':
-                setLatitude(coordinates.osun.latitude);
-                setLongitude(coordinates.osun.longitude);
-                break;
-            case 'Oyo State':
-                setLatitude(coordinates.oyo.latitude);
-                setLongitude(coordinates.oyo.longitude);
-                break;
-            default:
-                setLatitude(coordinates.edo.latitude);
-                setLongitude(coordinates.edo.longitude);
-        }
+        getLatLng(setLatitude, setLongitude, prop?.location?.state);
 
         // eslint-disable-next-line 
     }, [prop, latitude, longitude]);
@@ -160,10 +120,10 @@ const RentProp = () => {
                 <div className="prop-images flex-col">
                     <div className="prop-big-img">
                         <img src={bigImg} alt="propImg" />
-                        <div className="left-img-icon" onClick={viewPrevImg}>
+                        <div className="left-img-icon flex-cen" onClick={viewPrevImg}>
                             <FaAngleLeft className='property-prop-icon' />
                         </div>
-                        <div className="right-img-icon" onClick={viewNextImg}>
+                        <div className="right-img-icon flex-cen" onClick={viewNextImg}>
                             <FaAngleRight className='property-prop-icon' />
                         </div>
                     </div>
@@ -192,40 +152,27 @@ const RentProp = () => {
                         </div>
                         <div className="prop-price flex">
                             <GiBanknote className='property-prop-icon' />
-                            {
-                                prop.fee > 999 && prop.fee < 10000 ? 
-                                `${prop.fee.toString().substring(0, 1)}K` :
-                                prop.fee
-                                && 
-                                prop.fee > 9999 && prop.fee < 100000 ? 
-                                `${prop.fee.toString().substring(0, 2)}K` : 
-                                prop.fee
-                                &&
-                                prop.fee > 99999 && prop.fee < 1000000 ? 
-                                `${prop.fee.toString().substring(0, 3)}K` : 
-                                prop.fee
-                                &&
-                                prop.fee > 999999 && prop.fee < 10000000 ?
-                                `${prop.fee.toString().substring(0, 1)}M` :
-                                prop.fee
-                                &&
-                                prop.fee > 9999999 && prop.fee < 100000000 ? 
-                                `${prop.fee.toString().substring(0, 2)}M` :
-                                prop.fee 
-                                &&
-                                prop.fee > 99999999 && prop.fee < 1000000000 ?
-                                `${prop.fee.toString().substring(0, 3)}M` :
-                                prop.fee
-                            }
+                            <FormatPrice price={prop.fee} />
                             <span>{prop.period}</span>
                         </div>
                     </div>
                     <div className="prop-desc-bath-rooms flex">
                         <div className="prop-desc flex-col">
+                            <div className="created-at flex">
+                                Listed:
+                                <p>
+                                    {moment(prop.createdAt).calendar()}
+                                </p>
+                            </div>
                             Description:
                             <span>{prop.description}</span>
                         </div>
                         <div className="prop-bath-rooms flex-col">
+                            <div className="prop-rooms flex">
+                                <IoLink className='property-prop-icon' />
+                                Ref: 
+                                <span>{prop._id.substring(0, 8)}</span>
+                            </div>
                             <div className="prop-rooms flex">
                                 <FaBed className='property-prop-icon' />
                                 Bedrooms: 

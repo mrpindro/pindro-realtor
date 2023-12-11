@@ -8,12 +8,16 @@ import {
 import { FaXmark } from 'react-icons/fa6';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axiosApi, { sendSignUpMail, signUpURL } from '../../api/axiosApi';
+import useDataContext from '../../hooks/useDataContext';
 
 const FNAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,24}$/;
 const LNAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,24}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const SignUp = ({toggleLogin, closeModal}) => {
+    const { 
+        showPwd, handleShowPwd, setSuccessMsgs, setErrMsgs, setIsErr 
+    } = useDataContext();
     const fNameRef = React.useRef();
     const lNameRef = React.useRef();
     const errRef = React.useRef();
@@ -38,19 +42,11 @@ const SignUp = ({toggleLogin, closeModal}) => {
     const [phoneNum, setPhoneNum] = React.useState(0);
     const [image, setImage] = React.useState(null);
 
-    const [showPwd, setShowPwd] = React.useState(false);
     const [errMsg, setErrMsg] = React.useState('');
     const [success, setSuccess] = React.useState(false);
 
     const [isLoading, setIsLoading] = React.useState(false);
     const [formSubmitted, setFormSubmitted] = React.useState(false);
-
-    const handleShowPwd = () => {
-        if (showPwd) {
-            return setShowPwd(false)
-        }
-        setShowPwd(true);
-    }
 
     React.useEffect(() => {
         fNameRef.current.focus();
@@ -82,8 +78,11 @@ const SignUp = ({toggleLogin, closeModal}) => {
 
     React.useEffect(() => {
         if (success) {
-            alert('Sign up success!')
+            setIsErr(false);
+            setSuccessMsgs('Sign up success!');
         }
+
+        // eslint-disable-next-line 
     }, [success]);
 
     const handleSubmit = async (e) => {
@@ -126,12 +125,14 @@ const SignUp = ({toggleLogin, closeModal}) => {
             } else if (error.response.status === 409) {
                 return setErrMsg('User Already Exist');
             }
-            setErrMsg('Registration Failed');
+            setErrMsgs('Registration failed');
+            setIsErr(true);
+            setErrMsg('Registration failed');
             setIsLoading(false);
             setSuccess(false);
             errRef.current.focus();
         } finally {
-            setIsLoading(false)
+            setIsLoading(false);
         }
     }
 

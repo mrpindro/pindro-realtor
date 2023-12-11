@@ -92,12 +92,12 @@
 }
 .modal-con {
     position: absolute;
-    right: 2%;
-    top: 0;
+    z-index: 5;
+    width: 100%;
     height: 100%;
-    align-items: center;
+    overflow: hidden;
     justify-content: center;
-    width: auto;
+    align-items: center;
 }
 
 
@@ -113,6 +113,7 @@
     border-radius: 5px;
     gap: 10px;
     position: relative;
+    overflow: hidden;
 }
 .auth-form h3 {
     font-size: 30px;
@@ -226,6 +227,18 @@
 .auth-form .form-validation {
     color: #ff0000;
 }
+.auth-form .form-persist-forgot-pwd .form-persist label {
+    color: #ddd;
+    font-size: 15px;
+}
+.auth-form .form-persist-forgot-pwd .form-forget {
+    text-align: end;
+    width: 50%;
+}
+.auth-form .form-persist-forgot-pwd .form-forget .forgot-pwd {
+    color: rgb(59, 206, 250);
+    font-size: 15px;
+}
 .auth-form .login-btn {
     background-color: #008000;
 }
@@ -236,6 +249,19 @@
 .toggle-modal span:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+
+/* ForgotPassword component ------------- */
+.forgot-pwd-con {
+    margin: 20px auto;
+}
+
+
+/* ResetPassword component ------------- */
+.reset-pwd-con {
+    margin: 20px auto;
+    overflow: hidden;
 }
 
 
@@ -275,9 +301,6 @@
     
     
     /* Sign Up and Sign In Components  */
-    .auth-form {
-        margin-top: 70px;
-    }
     .auth-form h3 {
         font-size: 25px;
     } 
@@ -306,14 +329,6 @@
     
     
     /* Sign Up and Sign In Components  */
-    .auth-form {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 3;
-        width: 300px;
-        margin-top: 0px;
-    }
     .auth-form h3 {
         font-size: 20px;
     }
@@ -371,6 +386,12 @@
     .auth-form button {
         font-size: 11px;
     }
+    .auth-form .form-persist-forgot-pwd .form-persist label {
+        font-size: 12px;
+    }
+    .auth-form .form-persist-forgot-pwd .form-forget .forgot-pwd {
+        font-size: 12px;
+    }
     .toggle-modal {
         font-size: 13px;
     }
@@ -397,7 +418,6 @@
     
     /* Sign Up and Sign In Components  */
     .auth-form {
-        width: 240px;
-    }
-    
+        width: 95%;
+    } 
 }

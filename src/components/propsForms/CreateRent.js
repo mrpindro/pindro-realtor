@@ -9,11 +9,14 @@ import axiosApi, { postRentsProps, sendPropMail} from '../../api/axiosApi';
 import ClipLoader from 'react-spinners/ClipLoader';
 import useAuth from '../../hooks/useAuth';
 import { FaBed, FaShower } from 'react-icons/fa';
+import useDataContext from '../../hooks/useDataContext';
 
 const CreateRent = () => {
     const navigate = useNavigate();
 
     const { userId, name, email } = useAuth();
+    const {setErrMsgs, setSuccessMsgs, setIsErr} = useDataContext();
+
 
     const states = statesData;
     const imagesRef = React.useRef();
@@ -42,6 +45,17 @@ const CreateRent = () => {
         }
         // eslint-disable-next-line 
     }, [state]);
+
+    React.useEffect(() => {
+        if (images?.length > 10) {
+            return setErrMsg('Too many images selected: max 10');
+        }
+        if (town && !images?.length) {
+            return setErrMsg('Images are required!')
+        }
+    
+        // eslint-disable-next-line 
+    }, [images, town]);
 
     const clear = () => {
         imagesRef.current.files = null;
@@ -95,10 +109,14 @@ const CreateRent = () => {
                 });
 
                 if (response.data) {
-                    await axiosApi.post(sendPropMail, {name: name, title, email: email});
+                    await axiosApi.post(sendPropMail, {
+                        name: name, email: email, text: title,
+                        subject: 'Your property has been listed for rent'
+                    });
+                    setSuccessMsgs('Property successfully listed for rent');
+                    setIsErr(false);
                     setSuccessMsg('Upload successful.');
                     setErrMsg('');
-                    alert('Property Posted');
                     clear();
                     navigate('/rentprops');
                 }
@@ -106,6 +124,8 @@ const CreateRent = () => {
         } catch (error) {
             console.error(error);
             setSuccessMsg('');
+            setIsErr(true);
+            setErrMsgs('Upload failed');
             if (error.status === 406) {
                 setErrMsg('Missing Fields');
             } else {

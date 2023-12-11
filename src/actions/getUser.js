@@ -1,15 +1,12 @@
-import axiosApi from "../api/axiosApi";
+import axiosApi from '../api/axiosApi'
 
 const getUser = async (id) => {
-    let user;
-    try {       
-        const res = await axiosApi.get(`/users/${id}`);
-        user = res.data
+    try {
+        const user = await axiosApi.get(`users/${id}`)
+        return user.data;
     } catch (error) {
         console.log(error)
     }
-
-    return user;
-};
+}
 
 export default getUser;

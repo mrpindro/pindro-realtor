@@ -24,12 +24,14 @@ import EditBuyImg from './components/propsForms/EditBuyImg';
 import EditUser from './components/users/EditUser';
 import useAuth from './hooks/useAuth';
 import EditUserImg from './components/users/EditUserImg';
-import PropertyPage from './components/properties/PropertyPage';
 import UserPage from './components/users/UserPage';
 import Admin from './components/admin/Admin';
+import AdminDashboard from './components/admin/AdminDashboard';
+import ForgotPassword from './components/auth/ForgotPassword';
+import ResetPassword from './components/auth/ResetPassword';
 
 const App = () => {
-    const { isAdmin} = useAuth();
+    const { isAdmin } = useAuth();
 
     return (
         <div className='App'>
@@ -47,7 +49,8 @@ const App = () => {
                             <Route path='search' element={<Search />} />
                             <Route path='auth' element={<Auth />} />
                             <Route path='properties' element={<Properties />} />
-                            <Route path='properties/:id' element={<PropertyPage />} />
+                            <Route path='forgot-password' element={<ForgotPassword />} />
+                            <Route path='reset-password/:id' element={<ResetPassword />} />
                         </Route>
 
                         {/* protected Routes  */}
@@ -59,7 +62,14 @@ const App = () => {
                                 } />
                                 <Route path='/users/:id' element={<EditUser />} />
                                 <Route path='/usersImg/:id' element={<EditUserImg />} />
-                                <Route path='/admin/:id' element={<Admin />} />
+                                <Route path='/admin' element={
+                                    isAdmin ? <AdminDashboard /> : 
+                                    (<Navigate to='/' replace />)
+                                } />
+                                <Route path='/admin/:id' element={
+                                    isAdmin ? <Admin /> : 
+                                    (<Navigate to='/' replace />)
+                                } />
                             </Route>
                             <Route path='/userprofile' element={<UserPage />} />
                             <Route path='/createRent' element={<CreateRent />} />
