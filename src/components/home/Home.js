@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiSolidLogInCircle } from 'react-icons/bi';
 import './index.css';
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
 
     return (
         <main className='home-main flex-col'>

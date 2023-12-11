@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom';
 // import axiosApi from '../../api/axiosApi';
 import useRents from '../../hooks/useRents';
 import useBuys from '../../hooks/useBuys';
+import useTitle from '../../hooks/useTitle';
 
 const Properties = () => {
+    useTitle('Explore');
+    
     const [rents] = useRents();
     const [buys] = useBuys();
     const props = [];

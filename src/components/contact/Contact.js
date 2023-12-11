@@ -1,8 +1,11 @@
 import React from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import './index.css';
+import useTitle from '../../hooks/useTitle';
 
 const Contact = () => {
+    useTitle('How to contact us');
+    
     return (
         <main className='contact-main flex-col main-con'>
             <div className="contact-con flex-col">

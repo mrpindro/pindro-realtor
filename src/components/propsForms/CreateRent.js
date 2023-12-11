@@ -10,8 +10,11 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import useAuth from '../../hooks/useAuth';
 import { FaBed, FaShower } from 'react-icons/fa';
 import useDataContext from '../../hooks/useDataContext';
+import useTitle from '../../hooks/useTitle';
 
 const CreateRent = () => {
+    useTitle('List property for rent');
+
     const navigate = useNavigate();
 
     const { userId, name, email } = useAuth();

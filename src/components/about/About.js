@@ -1,8 +1,11 @@
 import React from 'react';
 import './index.css';
 import aboutVid from '../../video/about-vid.mp4';
+import useTitle from '../../hooks/useTitle';
 
 const About = () => {
+    useTitle('About Us');
+
     return (
         <main className='about-main main-con flex-col'>
             <div className="about-con flex-col">

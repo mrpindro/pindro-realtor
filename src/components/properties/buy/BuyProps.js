@@ -12,7 +12,7 @@ import useTitle from '../../../hooks/useTitle';
 import axiosApi from '../../../api/axiosApi';
 
 const BuyProps = () => {
-    useTitle('Pindro Realtor: Buy Properties');
+    useTitle('Buy Properties');
 
     const [isFilter, setIsFilter] = React.useState(false);
     const [filterProp, setFilterProp] = React.useState(false);

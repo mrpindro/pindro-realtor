@@ -15,6 +15,7 @@ import { statesCoordsData } from '../../../utils/data';
 import FormatPrice from '../../FormatPrice';
 import getLatLng from '../../../actions/getLatLng';
 import moment from 'moment';
+import useTitle from '../../../hooks/useTitle';
 
 const RentProp = () => {
     const { name, isAdmin } = useAuth();
@@ -24,7 +25,9 @@ const RentProp = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
+    
     const [prop, setProp] = React.useState(null);
+    useTitle(`Rent - ${prop?.title}`);
     const [bigImg, setBigImg] = React.useState(null);
     const [val, setVal] = React.useState(0);
     const [isDel, setIsDel] = React.useState(false);

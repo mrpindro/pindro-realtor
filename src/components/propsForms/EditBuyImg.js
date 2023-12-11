@@ -6,12 +6,14 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import useAuth from '../../hooks/useAuth';
 import axiosApi, { getSellingProps, postSellingProps } from '../../api/axiosApi';
 import { BsFillImageFill } from 'react-icons/bs';
+import useTitle from '../../hooks/useTitle';
 
 const EditBuyImg = () => {
     const { userId } = useAuth();
     const { id } = useParams();
     const navigate = useNavigate();
 
+    useTitle(`Modify images - ${id}`);
 
     const [prop, setProp] = React.useState(null);
 

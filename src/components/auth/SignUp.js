@@ -15,6 +15,7 @@ const LNAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,24}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const SignUp = ({toggleLogin, closeModal}) => {
+
     const { 
         showPwd, handleShowPwd, setSuccessMsgs, setErrMsgs, setIsErr 
     } = useDataContext();

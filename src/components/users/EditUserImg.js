@@ -4,11 +4,14 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import axiosApi, { signUpURL } from '../../api/axiosApi';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useTitle from '../../hooks/useTitle';
 
 const EditUserImg = () => {
     const navigate = useNavigate();
 
     const { image, userId } = useAuth();
+
+    useTitle(`Change image`);
 
     const errRef = React.useRef();
     const [profImage, setProfImage] = React.useState(null);
@@ -102,6 +105,7 @@ const EditUserImg = () => {
                             multiple={false}
                             required
                             onChange={onImageChanged}
+                            style={{ visibility: 'hidden' }}
                         />
                     </div>
                     <button 

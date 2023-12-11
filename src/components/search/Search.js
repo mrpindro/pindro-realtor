@@ -6,8 +6,11 @@ import SearchResults from './SearchResults';
 import SearchBuyResults from './SearchBuyResult';
 import SearchBuyInputs from './SearchBuyInputs';
 import axiosApi from '../../api/axiosApi';
+import useTitle from '../../hooks/useTitle';
 
 const Search = () => {
+    useTitle('Search properties');
+    
     const [rents, setRents] = React.useState(null);
     const [sales, setSales] = React.useState(null);
     const [rentProps, setRentProps] = React.useState(rents);

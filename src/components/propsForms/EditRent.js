@@ -8,11 +8,14 @@ import useAuth from '../../hooks/useAuth';
 import { FaBed, FaShower } from 'react-icons/fa';
 import { useUpdateRentMutation } from '../../features/rentsApiSlice';
 import axiosApi, { getRentsProps } from '../../api/axiosApi';
+import useTitle from '../../hooks/useTitle';
 
 const EditRent = () => {
     const { userId } = useAuth();
     const { id } = useParams();
     const navigate = useNavigate();
+
+    useTitle(`Modify - ${id}`)
 
     const [updateRent, {
         isLoading, isSuccess

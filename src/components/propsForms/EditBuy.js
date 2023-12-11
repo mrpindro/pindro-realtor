@@ -8,11 +8,14 @@ import useAuth from '../../hooks/useAuth';
 import { FaBed, FaShower } from 'react-icons/fa';
 import { useUpdateBuyMutation } from '../../features/buysApiSlice';
 import axiosApi, { getSellingProps } from '../../api/axiosApi';
+import useTitle from '../../hooks/useTitle';
 
 const EditBuy = () => {
     const { userId } = useAuth();
     const { id } = useParams();
     const navigate = useNavigate();
+
+    useTitle(`Modify - ${id}`);
 
     const [updateBuy, {isLoading, isSuccess}] = useUpdateBuyMutation();
 

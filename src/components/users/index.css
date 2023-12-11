@@ -220,7 +220,6 @@ tbody tr td img {
 }
 
 .del-options .del-yes-no button:nth-child(2) {
-    /* background: #ff0000; */
     border: 1px solid #ff0000;
 }
 
@@ -243,6 +242,9 @@ tbody tr td img {
     border-radius: 5px;
     font-weight: 600;
     gap: 5px;
+}
+.form-user-img-grp .file-label {
+    cursor: pointer;
 }
 
 

@@ -12,7 +12,7 @@ import {
     useDeleteUserMutation, useUpdateUserMutation 
 } from '../../features/usersApiSlice';
 import useAuth from '../../hooks/useAuth';
-import axiosApi from '../../api/axiosApi';
+import useTitle from '../../hooks/useTitle';
 
 const FNAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,24}$/;
 const LNAME_REGEX = /^[a-zA-Z][a-zA-Z]{2,24}$/;
@@ -21,6 +21,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EditUser = () => {
     const { name, email: uEmail, phoneNum: uPhoneNum } = useAuth();
     const { id } = useParams();
+
+    useTitle(`Edit account - ${name}`);
     
     const navigate = useNavigate();
 

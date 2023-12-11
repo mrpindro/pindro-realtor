@@ -6,9 +6,14 @@ import './index.css';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useDataContext from '../../hooks/useDataContext';
+import useTitle from '../../hooks/useTitle';
 
 const Auth = () => {
+    
     const { email } = useAuth();
+
+    useTitle(email ? 'Sell or rent out your property' : 'Login or Register');
+
     const {
         isLogin, isRegister, toggleLogin, toggleRegister, setIsRegister, 
         setIsLogin

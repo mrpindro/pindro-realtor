@@ -12,7 +12,7 @@ import numberOfPages from '../../../actions/getNumberOfPages';
 import axiosApi from '../../../api/axiosApi';
 
 const RentProps = () => {
-    useTitle('Pindro Realtor: Rent Properties');
+    useTitle('Rent Properties');
 
     // const rents = getRents.data;
     

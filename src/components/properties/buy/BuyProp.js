@@ -15,6 +15,7 @@ import useDataContext from '../../../hooks/useDataContext';
 import getLatLng from '../../../actions/getLatLng';
 import { IoLink } from 'react-icons/io5';
 import moment from 'moment';
+import useTitle from '../../../hooks/useTitle';
 
 const BuyProp = () => {
     const { name, isAdmin } = useAuth();
@@ -25,7 +26,12 @@ const BuyProp = () => {
     const navigate = useNavigate();
 
     const { id } = useParams();
+
+    
     const [prop, setProp] = React.useState(null);
+
+    useTitle(`Buy - ${prop?.title}`);
+
     const [bigImg, setBigImg] = React.useState(null);
     const [val, setVal] = React.useState(0);
     const [isDel, setIsDel] = React.useState(false);

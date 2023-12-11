@@ -5,9 +5,12 @@ import './index.css';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import axiosApi from '../../api/axiosApi';
+import useTitle from '../../hooks/useTitle';
 
 const UserPage = () => {
     const { name, email, image, phoneNum, userId } = useAuth();
+
+    useTitle(name);
     
     const [rentProps, setRentProps] = React.useState([]);
     const [salesProps, setSalesProps] = React.useState([]);

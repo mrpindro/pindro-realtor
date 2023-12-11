@@ -10,8 +10,11 @@ import useAuth from '../../hooks/useAuth';
 import { PiCurrencyNgnDuotone } from 'react-icons/pi';
 import { FaBed, FaShower } from 'react-icons/fa';
 import useDataContext from '../../hooks/useDataContext';
+import useTitle from '../../hooks/useTitle';
 
 const CreateBuy = () => {
+    useTitle('List property for sale');
+
     const { userId, name, email } = useAuth();
     const {setErrMsgs, setSuccessMsgs, setIsErr} = useDataContext();
     const navigate = useNavigate();
