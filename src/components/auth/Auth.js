@@ -28,7 +28,7 @@ const Auth = () => {
 
     return (
         <main className='auth-main main-con flex-col'>
-            {(isLogin || isRegister) && (
+            {(isLogin || isRegister) && !email && (
                 <div className="modal-con flex-col">
                     {isLogin && (
                         <SignIn 
